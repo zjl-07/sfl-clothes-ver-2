@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItemList from "components/menu-item-list/menu-item-list";
 
-const Homepage = props => {
+const HomePage = props => {
   return (
     <div className="homepage">
       <MenuItemList />
@@ -9,4 +9,4 @@ const Homepage = props => {
   );
 };
 
-export default Homepage;
+export default HomePage;
