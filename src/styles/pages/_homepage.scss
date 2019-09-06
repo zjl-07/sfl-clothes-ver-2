@@ -2,46 +2,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: antiquewhite;
   padding: 1rem;
-}
-
-.menu_items {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  &-item {
-    min-width: 30%;
-    height: 30rem;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.05rem solid black;
-    margin: 1rem;
-
-    .content {
-      height: 10rem;
-      padding: 0 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 0.05rem solid black;
-
-      .title {
-        font-weight: bold;
-        margin-bottom: 1rem;
-        font-size: 2rem;
-        color: #4a4a4a;
-      }
-
-      .subtitle {
-        font-weight: lighter;
-        font-size: 1rem;
-      }
-    }
-  }
 }
