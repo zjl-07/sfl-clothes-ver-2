@@ -1,0 +1,29 @@
+.header {
+  height: 5.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-bottom: 0.1rem solid gainsboro;
+
+  .logo-container {
+    height: 100%;
+    width: 5rem;
+
+    .logo {
+      margin: 0.5rem;
+    }
+  }
+
+  .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .option {
+      padding: 0 1.5rem;
+    }
+  }
+}
