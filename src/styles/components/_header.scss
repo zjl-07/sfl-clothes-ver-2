@@ -1,18 +1,14 @@
 .header {
-  height: 5.5rem;
+  height: 7rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
-  border-bottom: 0.1rem solid gainsboro;
+  border-bottom: 0.1rem solid $light-color;
 
   .logo-container {
     height: 100%;
     width: 5rem;
-
-    .logo {
-      margin: 0.5rem;
-    }
   }
 
   .options {
@@ -23,7 +19,12 @@
     justify-content: flex-end;
 
     .option {
-      padding: 0 1.5rem;
+      @include primaryFont;
+      padding: 0 2rem;
+
+      &:hover {
+        text-decoration-line: underline;
+      }
     }
   }
 }

@@ -6,7 +6,7 @@
 
   &-item {
     min-width: 30%;
-    height: 30rem;
+    height: 50rem;
     flex: 1;
     display: flex;
     align-items: center;
@@ -14,7 +14,8 @@
     margin: 1rem;
     overflow: hidden;
     border-radius: 0.5rem;
-    box-shadow: 0.1rem 0.1rem 10px grey;
+    box-shadow: 0.1rem 0.1rem 1rem $sub-color;
+    text-transform: uppercase;
 
     &:hover {
       cursor: pointer;
@@ -32,40 +33,39 @@
     }
 
     &.large {
-      height: 38rem;
+      height: 50rem;
     }
 
     .background-image {
       height: 100%;
       width: 100%;
       background-size: cover;
-      background-color: pink;
+      background-color: $background-blend-pink;
       background-position: center;
       background-blend-mode: luminosity;
     }
 
     .content {
-      height: 8rem;
-      width: 25rem;
+      height: 10rem;
+      width: 30rem;
       padding: 0 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: white;
+      background-color: $main-light-color;
       position: absolute;
       border-radius: 0.5rem;
       opacity: 0.6;
 
       .title {
-        font-weight: bold;
-        font-size: 2rem;
-        color: #4a4a4a;
+        @include primaryFont;
+        font-size: 3rem;
+        color: $main-color;
       }
 
-      .subtitle {
+      .sub-title {
         font-weight: lighter;
-        font-size: 1rem;
       }
     }
   }

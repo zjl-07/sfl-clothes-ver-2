@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MenuItem from "components/menu-item/menu-item";
+import MenuItem from "components/menu-item";
 import { MENU_ITEM_DATA } from "services/data";
 
 class MenuItemList extends Component {

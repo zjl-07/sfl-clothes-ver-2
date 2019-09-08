@@ -1,0 +1,54 @@
+.form {
+  margin: 0 auto;
+  width: 40rem;
+  text-align: center;
+
+  .title {
+    @include primaryFont;
+  }
+
+  &-group {
+    position: relative;
+    margin: 5rem 0;
+  }
+
+  &-input {
+    background: none;
+    background-color: $main-light-color;
+    color: $main-color;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 0.05rem solid $sub-color;
+    margin: 3rem 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .form-input-label {
+      @include shrinkLabel();
+    }
+
+    &-label {
+      color: $sub-color;
+      font-size: 1.8rem;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 5px;
+      top: 0.5rem;
+      transition: 300ms ease all;
+
+      &.shrink {
+        @include shrinkLabel();
+      }
+    }
+  }
+
+  input[type="password"] {
+    letter-spacing: 0.3em;
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import MenuItemList from "components/menu-item-list/menu-item-list";
+import MenuItemList from "components/menu-item-list";
 
 const HomePage = props => {
   return (

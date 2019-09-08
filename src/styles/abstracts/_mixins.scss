@@ -1,7 +1,12 @@
-@mixin clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+@mixin shrinkLabel {
+  top: -1.8rem;
+  font-size: 1.4rem;
+  color: $main-color;
+}
+
+@mixin primaryFont {
+  color: $main-color;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed";
+  font-weight: bolder;
 }
