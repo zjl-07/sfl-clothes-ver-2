@@ -1,7 +1,6 @@
 import React from "react";
 
 const Input = ({ handleChange, label, ...rest }) => {
-  console.log(rest);
   return (
     <div className="form-group">
       <input className="form-input" onChange={handleChange} {...rest}></input>

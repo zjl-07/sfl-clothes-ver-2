@@ -1,5 +1,5 @@
 .header {
-  height: 7rem;
+  height: 8rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -9,6 +9,10 @@
   .logo-container {
     height: 100%;
     width: 5rem;
+
+    .logo {
+      width: 8rem;
+    }
   }
 
   .options {
@@ -21,9 +25,11 @@
     .option {
       @include primaryFont;
       padding: 0 2rem;
+      cursor: pointer;
 
       &:hover {
         text-decoration-line: underline;
+        font-weight: 900;
       }
     }
   }

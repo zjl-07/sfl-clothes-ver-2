@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Input from "components/form-input";
 import Button from "components/button";
+import { signInWithGoogle } from "firebase/firebase.utils";
 
 class Login extends Component {
   constructor(props) {
@@ -13,14 +14,14 @@ class Login extends Component {
     };
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
 
     this.setState({ email: "", password: "" });
   };
 
-  handleChange = e => {
-    const { value, name } = e.target;
+  handleChange = event => {
+    const { value, name } = event.target;
 
     this.setState({ [name]: value });
   };
@@ -46,7 +47,12 @@ class Login extends Component {
             handleChange={this.handleChange}
             required
           />
-          <Button type="submit">Submit</Button>
+          <div className="buttons">
+            <Button type="submit">Submit</Button>
+            <Button onClick={signInWithGoogle} isGoogleSignIn>
+              Sign In With Google
+            </Button>
+          </div>
 
           <div className="u-margin-top-small">
             Don't have any account?
