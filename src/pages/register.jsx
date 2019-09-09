@@ -31,7 +31,6 @@ class Register extends Component {
       );
 
       await createUserProfileDocument(user, { displayName });
-      this.props.history.push("/");
 
       this.setState({
         displayName: "",
@@ -39,6 +38,8 @@ class Register extends Component {
         password: "",
         confirmPassword: ""
       });
+
+      this.props.history.push("/");
     } catch (err) {
       console.log("Register failed", err.message);
     }

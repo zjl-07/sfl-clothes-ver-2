@@ -16,11 +16,12 @@ class Login extends Component {
 
   handleSubmit = async () => {
     const { email, password } = this.state;
+
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      this.props.history.push("/");
-
       this.setState({ email: "", password: "" });
+
+      this.props.history.push("/");
     } catch (err) {
       console.log("Login Failed", err.mesaage);
     }
