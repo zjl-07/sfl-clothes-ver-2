@@ -27,6 +27,7 @@ class Login extends Component {
   };
 
   render() {
+    const { email, password } = this.state;
     return (
       <div className="form">
         <h1 className="title">Login</h1>
@@ -35,7 +36,7 @@ class Login extends Component {
             name="email"
             type="email"
             label="Email"
-            value={this.state.email}
+            value={email}
             handleChange={this.handleChange}
             required
           />
@@ -43,7 +44,7 @@ class Login extends Component {
             name="password"
             type="password"
             label="Password"
-            value={this.state.password}
+            value={password}
             handleChange={this.handleChange}
             required
           />
