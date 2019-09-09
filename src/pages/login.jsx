@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Input from "components/form-input";
 import Button from "components/button";
-import { signInWithGoogle } from "firebase/firebase.utils";
+import { auth, signInWithGoogle } from "firebase/firebase.utils";
 
 class Login extends Component {
   constructor(props) {
@@ -14,10 +14,16 @@ class Login extends Component {
     };
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
+  handleSubmit = async () => {
+    const { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.props.history.push("/");
 
-    this.setState({ email: "", password: "" });
+      this.setState({ email: "", password: "" });
+    } catch (err) {
+      console.log("Login Failed", err.mesaage);
+    }
   };
 
   handleChange = event => {

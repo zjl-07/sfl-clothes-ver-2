@@ -16,10 +16,9 @@ class Register extends Component {
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async () => {
     const { displayName, password, confirmPassword, email } = this.state;
 
-    event.preventDefault();
     if (password !== confirmPassword) {
       alert("Password not matched!");
       return;
@@ -31,9 +30,8 @@ class Register extends Component {
         password
       );
 
-      console.log("user", user);
-
       await createUserProfileDocument(user, { displayName });
+      this.props.history.push("/");
 
       this.setState({
         displayName: "",
@@ -91,6 +89,7 @@ class Register extends Component {
             required
           />
           <Button type="submit">Create Account</Button>
+
           <div className="u-margin-top-small">
             Already have account?
             <Link to="/login"> Login Here!</Link>

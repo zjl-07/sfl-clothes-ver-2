@@ -43,6 +43,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.currentUser);
     return (
       <div>
         <Header currentUser={this.state.currentUser} />
