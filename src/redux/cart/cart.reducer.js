@@ -1,15 +1,15 @@
-import ActionType from "redux/user/user.types";
+import ActionType from "redux/cart/cart.types";
 
 const INITIAL_STATE = {
-  currentUser: null
+  hidden: true
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ActionType.SET_CURRENT_USER:
+    case ActionType.TOGGLE_CART_HIDDEN:
       return {
         ...state,
-        currentUser: action.payload
+        hidden: !state.hidden
       };
     default:
       return state;

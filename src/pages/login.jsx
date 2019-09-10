@@ -20,8 +20,6 @@ class Login extends Component {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: "", password: "" });
-
-      this.props.history.push("/");
     } catch (err) {
       console.log("Login Failed", err.mesaage);
     }

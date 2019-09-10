@@ -38,8 +38,6 @@ class Register extends Component {
         password: "",
         confirmPassword: ""
       });
-
-      this.props.history.push("/");
     } catch (err) {
       console.log("Register failed", err.message);
     }
