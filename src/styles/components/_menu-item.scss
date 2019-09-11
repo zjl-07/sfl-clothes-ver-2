@@ -20,20 +20,20 @@
     &:hover {
       cursor: pointer;
 
-      & .background-image {
+      .background-image {
         transform: scale(1.1);
         background-blend-mode: normal;
         transition: all 4s ease;
       }
 
-      & .content {
+      .content {
         opacity: 0.8;
         transition: all 2s ease;
       }
     }
 
     &.large {
-      height: 50rem;
+      height: 55rem;
     }
 
     .background-image {

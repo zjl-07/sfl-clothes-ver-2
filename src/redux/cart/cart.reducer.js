@@ -1,7 +1,9 @@
 import ActionType from "redux/cart/cart.types";
+import { addItemToCart } from "redux/cart/cart.utils";
 
 const INITIAL_STATE = {
-  hidden: true
+  hidden: true,
+  cartItems: []
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -10,6 +12,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hidden: !state.hidden
+      };
+    case ActionType.ADD_ITEM:
+      return {
+        ...state,
+        cartItems: addItemToCart(state.cartItems, action.payload)
       };
     default:
       return state;

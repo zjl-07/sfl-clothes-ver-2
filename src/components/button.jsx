@@ -1,9 +1,11 @@
 import React from "react";
 
-const Button = ({ children, isGoogleSignIn, ...rest }) => {
+const Button = ({ children, isGoogleSignIn, inverted, ...rest }) => {
   return (
     <button
-      className={`${isGoogleSignIn ? "google-sign-in" : ""} button`}
+      className={`button ${inverted ? "inverted" : ""} ${
+        isGoogleSignIn ? "google-sign-in" : ""
+      }`}
       {...rest}
     >
       {children}
