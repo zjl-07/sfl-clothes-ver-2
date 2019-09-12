@@ -11,6 +11,11 @@
   right: 2.5rem;
   z-index: 5;
 
+  .message {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
   .cart-items {
     height: 30rem;
     display: flex;
