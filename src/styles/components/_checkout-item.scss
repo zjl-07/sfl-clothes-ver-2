@@ -27,7 +27,12 @@
   }
 
   .quantity {
-    padding-left: 3rem;
+    .fa {
+      cursor: pointer;
+    }
+    .value {
+      margin: 2rem;
+    }
   }
 
   .remove-button {

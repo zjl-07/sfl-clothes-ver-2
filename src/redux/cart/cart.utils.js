@@ -13,3 +13,15 @@ export const addItemToCart = (cartItems, cartItemsToAdd) => {
 
   return [...cartItems, { ...cartItemsToAdd, quantity: 1 }];
 };
+
+export const deleteItem = (cartItems, itemToBeDelete) => {
+  if (itemToBeDelete.quantity === 1) {
+    return cartItems.filter(item => item.id !== itemToBeDelete.id);
+  }
+
+  return cartItems.map(item =>
+    item.id === itemToBeDelete.id
+      ? { ...item, quantity: item.quantity - 1 }
+      : item
+  );
+};

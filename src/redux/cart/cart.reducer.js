@@ -1,5 +1,5 @@
 import ActionType from "redux/cart/cart.types";
-import { addItemToCart } from "redux/cart/cart.utils";
+import { addItemToCart, deleteItem } from "redux/cart/cart.utils";
 
 const INITIAL_STATE = {
   hidden: true,
@@ -17,6 +17,16 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload)
+      };
+    case ActionType.CLEAR_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(item => item.id !== action.payload.id)
+      };
+    case ActionType.DELETE_ITEM:
+      return {
+        ...state,
+        cartItems: deleteItem(state.cartItems, action.payload)
       };
     default:
       return state;
