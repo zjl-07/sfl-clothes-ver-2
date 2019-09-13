@@ -1,27 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectMenuItemList } from "redux/menu/menu.selector";
 import MenuItem from "components/menu-item";
-import { MENU_ITEM_DATA } from "services/data";
 
-class MenuItemList extends Component {
-  constructor(props) {
-    super(props);
+const MenuItemList = ({ sections }) => {
+  return (
+    <div className="menu-item-list">
+      {sections.map(({ id, ...rest }) => (
+        <MenuItem key={id} {...rest} />
+      ))}
+    </div>
+  );
+};
 
-    this.state = {
-      sections: MENU_ITEM_DATA
-    };
-  }
+const mapStateToProps = createStructuredSelector({
+  sections: selectMenuItemList
+});
 
-  render() {
-    const { sections } = this.state;
-
-    return (
-      <div className="menu_item">
-        {sections.map(({ id, ...rest }) => (
-          <MenuItem key={id} {...rest} />
-        ))}
-      </div>
-    );
-  }
-}
-
-export default MenuItemList;
+export default connect(mapStateToProps)(MenuItemList);

@@ -5,7 +5,10 @@
 @import "base/utilities";
 
 @import "components/menu-item";
+@import "components/menu-item-list";
 @import "components/collection-item";
+@import "components/collection-preview";
+@import "components/collections-overview";
 @import "components/header";
 @import "components/form";
 @import "components/button";
@@ -15,5 +18,5 @@
 @import "components/checkout-item";
 
 @import "pages/homepage";
-@import "pages/collection-preview";
 @import "pages/checkout";
+@import "pages/collection";
