@@ -3,7 +3,8 @@
   flex-direction: column;
 
   .title {
-    font-size: 3.8rem;
+    @include primaryFont;
+    font-size: 4rem;
     margin: 0 auto 3rem;
   }
 

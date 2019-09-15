@@ -1,12 +1,12 @@
 .cart-item {
   width: 100%;
   display: flex;
-  height: 8rem;
+  height: 7rem;
   margin-bottom: 1.5rem;
   z-index: 999;
 
   img {
-    width: 30%;
+    width: 27%;
   }
 
   .item-details {
@@ -16,9 +16,5 @@
     align-items: flex-start;
     justify-content: center;
     padding: 1rem 2rem;
-
-    .name {
-      font-size: 1.6rem;
-    }
   }
 }

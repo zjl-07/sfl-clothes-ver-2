@@ -1,9 +1,9 @@
 .checkout {
-  width: 57%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6rem auto 0;
+  margin: 0 auto;
 
   &-header {
     width: 100%;
@@ -13,7 +13,6 @@
     border-bottom: 0.2rem solid $sub-color;
 
     .header-block {
-      font-size: 1.9rem;
       font-weight: bold;
       text-transform: uppercase;
       width: 20%;
@@ -26,7 +25,7 @@
 
   &-body {
     width: 100%;
-    height: 60rem;
+    height: 43rem;
     overflow-y: scroll;
     border-bottom: 0.2rem solid $sub-color;
   }
@@ -41,8 +40,18 @@
   }
 
   .total {
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-left: auto;
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+
+  .test-warning {
+    text-align: center;
+    font-size: 1.4rem;
+    color: $red-color;
+  }
+
+  button {
+    margin-left: auto;
   }
 }
