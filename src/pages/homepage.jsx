@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItemList from "components/menu-item-list";
 
-const HomePage = props => {
+const HomePage = () => {
   return (
     <div className="homepage">
       <MenuItemList />

@@ -10,6 +10,7 @@ import ShopPage from "pages/shop";
 import Login from "pages/login";
 import Register from "pages/register";
 import Checkout from "pages/checkout";
+import ContactUs from "pages/contact-us";
 import Header from "components/header";
 import "styles/main.scss";
 
@@ -47,7 +48,12 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={Checkout} />
+          <Route path="/contact-us" component={ContactUs} />
+          <Route
+            exact
+            path="/checkout"
+            render={() => (currentUser ? <Checkout /> : <Login />)}
+          />
           <Route
             exact
             path="/login"

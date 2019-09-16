@@ -87,7 +87,9 @@ class Register extends Component {
             handleChange={this.handleChange}
             required
           />
-          <Button type="submit">Create Account</Button>
+          <div className="center">
+            <Button type="submit">Create Account</Button>
+          </div>
 
           <div className="u-margin-top-small">
             Already have account?
