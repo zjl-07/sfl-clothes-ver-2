@@ -5,13 +5,13 @@ import { createStructuredSelector } from "reselect";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 import { setCurrentUser } from "redux/user/user.action";
 import { selectCurrentUser } from "redux/user/user.selector";
-import HomePage from "pages/homepage";
-import ShopPage from "pages/shop";
-import Login from "pages/login";
-import Register from "pages/register";
-import Checkout from "pages/checkout";
-import ContactUs from "pages/contact-us";
-import Header from "components/header";
+import HomePage from "pages/homepage/homepage";
+import ShopPage from "pages/shop/shop";
+import Login from "pages/login/login";
+import Register from "pages/register/register";
+import Checkout from "pages/checkout/checkout";
+import ContactUs from "pages/contact-us/contact-us";
+import Header from "components/header/header";
 import "styles/main.scss";
 
 class App extends Component {
