@@ -1,3 +1,5 @@
+This is the second version of Clothes-Ecommerce (repo : https://github.com/zjl-07/Clothes-Ecommerce), will implementing more advanced react topic, such as styled-component, context api, hooks, etc. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
