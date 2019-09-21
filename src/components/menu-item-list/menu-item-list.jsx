@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectMenuItemList } from "redux/menu/menu.selector";
 import MenuItem from "components/menu-item/menu-item";
+import { MenuItemListContainer } from "./menu-item-list.style";
 
 const MenuItemList = ({ sections }) => {
   return (
-    <div className="menu-item-list">
+    <MenuItemListContainer>
       {sections.map(({ id, ...rest }) => (
         <MenuItem key={id} {...rest} />
       ))}
-    </div>
+    </MenuItemListContainer>
   );
 };
 

@@ -7,12 +7,12 @@ import { setCurrentUser } from "redux/user/user.action";
 import { selectCurrentUser } from "redux/user/user.selector";
 import HomePage from "pages/homepage/homepage";
 import ShopPage from "pages/shop/shop";
-import Login from "pages/login/login";
-import Register from "pages/register/register";
+import Login from "pages/login-register/login";
+import Register from "pages/login-register/register";
 import Checkout from "pages/checkout/checkout";
 import ContactUs from "pages/contact-us/contact-us";
 import Header from "components/header/header";
-import "styles/main.scss";
+import "./App.css";
 
 class App extends Component {
   unsubscribeFromAuth = null;

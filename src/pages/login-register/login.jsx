@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import Input from "components/form/form-input";
 import Button from "components/button/button";
 import { auth, signInWithGoogle } from "firebase/firebase.utils";
+import { FormContainer } from "components/form/form-input.style";
+import {
+  TitleContainer,
+  ButtonsContainer,
+  DetailsContainer
+} from "./login-register.style";
 
 class Login extends Component {
   constructor(props) {
@@ -34,8 +40,8 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="form">
-        <h1 className="title">Login</h1>
+      <FormContainer>
+        <TitleContainer>Login</TitleContainer>
         <form onSubmit={this.handleSubmit}>
           <Input
             name="email"
@@ -53,19 +59,19 @@ class Login extends Component {
             handleChange={this.handleChange}
             required
           />
-          <div className="buttons">
+          <ButtonsContainer>
             <Button type="submit">Submit</Button>
             <Button onClick={signInWithGoogle} isGoogleSignIn>
               Sign In With Google
             </Button>
-          </div>
+          </ButtonsContainer>
 
-          <div className="u-margin-top-small">
+          <DetailsContainer>
             Don't have any account?
             <Link to="/register"> Register Here!</Link>
-          </div>
+          </DetailsContainer>
         </form>
-      </div>
+      </FormContainer>
     );
   }
 }

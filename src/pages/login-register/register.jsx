@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import Input from "components/form/form-input";
 import Button from "components/button/button";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
+import { FormContainer } from "components/form/form-input.style";
+import {
+  TitleContainer,
+  ButtonsContainer,
+  DetailsContainer
+} from "./login-register.style";
 
 class Register extends Component {
   constructor(props) {
@@ -52,8 +58,8 @@ class Register extends Component {
   render() {
     const { displayName, password, confirmPassword, email } = this.state;
     return (
-      <div className="form">
-        <h1 className="title">Register</h1>
+      <FormContainer>
+        <TitleContainer>Register</TitleContainer>
         <form onSubmit={this.handleSubmit}>
           <Input
             name="displayName"
@@ -87,16 +93,16 @@ class Register extends Component {
             handleChange={this.handleChange}
             required
           />
-          <div className="center">
+          <ButtonsContainer center>
             <Button type="submit">Create Account</Button>
-          </div>
+          </ButtonsContainer>
 
-          <div className="u-margin-top-small">
+          <DetailsContainer>
             Already have account?
             <Link to="/login"> Login Here!</Link>
-          </div>
+          </DetailsContainer>
         </form>
-      </div>
+      </FormContainer>
     );
   }
 }
