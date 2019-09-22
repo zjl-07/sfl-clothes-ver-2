@@ -12,6 +12,7 @@ export const TitleContainer = styled.div`
   font-size: 2.8rem;
   margin-bottom: 2.5rem;
   text-transform: uppercase;
+  cursor: pointer;
 `;
 
 export const PreviewContainer = styled.div`
