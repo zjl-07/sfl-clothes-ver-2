@@ -28,6 +28,11 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: deleteItem(state.cartItems, action.payload)
       };
+    case ActionType.CLEAR_CART:
+      return {
+        ...state,
+        cartItems: []
+      };
     default:
       return state;
   }

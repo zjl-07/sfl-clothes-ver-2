@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Input from "components/form/form-input";
 import Button from "components/button/button";
-import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 import { FormContainer } from "components/form/form-input.style";
+import { registerStart } from "redux/user/user.action";
 import {
   TitleContainer,
   ButtonsContainer,
@@ -22,31 +23,16 @@ class Register extends Component {
     };
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async e => {
+    e.preventDefault();
     const { displayName, password, confirmPassword, email } = this.state;
-
+    const { registerStart } = this.props;
     if (password !== confirmPassword) {
       alert("Password not matched!");
       return;
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await createUserProfileDocument(user, { displayName });
-
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-      });
-    } catch (err) {
-      console.log("Register failed", err.message);
-    }
+    registerStart({ displayName, password, email });
   };
 
   handleChange = event => {
@@ -107,4 +93,11 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => ({
+  registerStart: userData => dispatch(registerStart(userData))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Register);
