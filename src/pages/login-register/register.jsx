@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Input from "components/form/form-input";
@@ -11,22 +11,18 @@ import {
   DetailsContainer
 } from "./login-register.style";
 
-class Register extends Component {
-  constructor(props) {
-    super(props);
+const Register = ({ registerStart }) => {
+  const [userCredentials, setCredentials] = useState({
+    displayName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
 
-    this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
-    };
-  }
+  const { displayName, password, confirmPassword, email } = userCredentials;
 
-  handleSubmit = async e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    const { displayName, password, confirmPassword, email } = this.state;
-    const { registerStart } = this.props;
     if (password !== confirmPassword) {
       alert("Password not matched!");
       return;
@@ -35,63 +31,60 @@ class Register extends Component {
     registerStart({ displayName, password, email });
   };
 
-  handleChange = event => {
+  const handleChange = event => {
     const { value, name } = event.target;
 
-    this.setState({ [name]: value });
+    setCredentials({ ...userCredentials, [name]: value });
   };
 
-  render() {
-    const { displayName, password, confirmPassword, email } = this.state;
-    return (
-      <FormContainer>
-        <TitleContainer>Register</TitleContainer>
-        <form onSubmit={this.handleSubmit}>
-          <Input
-            name="displayName"
-            type="text"
-            label="Name"
-            value={displayName}
-            handleChange={this.handleChange}
-            required
-          />
-          <Input
-            name="email"
-            type="email"
-            label="Email"
-            value={email}
-            handleChange={this.handleChange}
-            required
-          />
-          <Input
-            name="password"
-            type="password"
-            label="Password"
-            value={password}
-            handleChange={this.handleChange}
-            required
-          />
-          <Input
-            name="confirmPassword"
-            type="password"
-            label="Confirm Password"
-            value={confirmPassword}
-            handleChange={this.handleChange}
-            required
-          />
-          <ButtonsContainer center>
-            <Button type="submit">Create Account</Button>
-          </ButtonsContainer>
+  return (
+    <FormContainer>
+      <TitleContainer>Register</TitleContainer>
+      <form onSubmit={handleSubmit}>
+        <Input
+          name="displayName"
+          type="text"
+          label="Name"
+          value={displayName}
+          handleChange={handleChange}
+          required
+        />
+        <Input
+          name="email"
+          type="email"
+          label="Email"
+          value={email}
+          handleChange={handleChange}
+          required
+        />
+        <Input
+          name="password"
+          type="password"
+          label="Password"
+          value={password}
+          handleChange={handleChange}
+          required
+        />
+        <Input
+          name="confirmPassword"
+          type="password"
+          label="Confirm Password"
+          value={confirmPassword}
+          handleChange={this.handleChange}
+          required
+        />
+        <ButtonsContainer center>
+          <Button type="submit">Create Account</Button>
+        </ButtonsContainer>
 
-          <DetailsContainer>
-            Already have account?
-            <Link to="/login"> Login Here!</Link>
-          </DetailsContainer>
-        </form>
-      </FormContainer>
-    );
-  }
-}
+        <DetailsContainer>
+          Already have account?
+          <Link to="/login"> Login Here!</Link>
+        </DetailsContainer>
+      </form>
+    </FormContainer>
+  );
+};
 
 const mapDispatchToProps = dispatch => ({
   registerStart: userData => dispatch(registerStart(userData))
