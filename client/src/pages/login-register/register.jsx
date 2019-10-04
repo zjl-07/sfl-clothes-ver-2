@@ -70,7 +70,7 @@ const Register = ({ registerStart }) => {
           type="password"
           label="Confirm Password"
           value={confirmPassword}
-          handleChange={this.handleChange}
+          handleChange={handleChange}
           required
         />
         <ButtonsContainer center>
