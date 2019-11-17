@@ -19,3 +19,9 @@ body {
 a {
   text-decoration: black;
 }
+
+@media only screen and (max-width: 411px) {
+  body {
+    padding: 1rem;
+  }
+}

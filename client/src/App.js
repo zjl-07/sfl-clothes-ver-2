@@ -12,6 +12,7 @@ import Checkout from "pages/checkout/checkout";
 import ContactUs from "pages/contact-us/contact-us";
 import Header from "components/header/header";
 import "./App.css";
+//import { GlobalStyle } from "global.styles";
 
 const App = ({ checkUserAuthentication, currentUser }) => {
   useEffect(() => {
@@ -53,7 +54,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(checkUserAuthentication(userData))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

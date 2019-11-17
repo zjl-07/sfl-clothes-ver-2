@@ -22,6 +22,11 @@ export const CollectionItemContainer = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 411px) {
+    width: 40vw;
+    height: 30vh;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -41,6 +46,12 @@ export const AddButton = styled(Button)`
   position: absolute;
   top: 35rem;
   display: none;
+
+  @media screen and (max-width: 411px) {
+    top: 15rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
 `;
 
 export const FooterContainer = styled.div`
@@ -48,6 +59,11 @@ export const FooterContainer = styled.div`
   height: 5%;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 411px) {
+    font-size: 1.2rem;
+    width: 80%;
+  }
 `;
 
 export const NameContainer = styled.span`

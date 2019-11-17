@@ -29,6 +29,10 @@ export const MenuItemContainer = styled.div`
       transition: all 2s ease;
     }
   }
+
+  @media screen and (max-width: 411px) {
+    height: 20rem;
+  }
 `;
 
 export const BackgroundImageContainer = styled.div`
@@ -52,14 +56,27 @@ export const ContentContainer = styled.div`
   position: absolute;
   border-radius: 0.5rem;
   opacity: 0.6;
+
+  @media screen and (max-width: 411px) {
+    height: 7rem;
+    width: 12rem;
+  }
 `;
 
 export const ContentTitle = styled.div`
   ${primaryFont};
   font-size: 4rem;
   color: ${color.mainColor};
+
+  @media screen and (max-width: 411px) {
+    font-size: 3rem;
+  }
 `;
 
 export const ContentSubTitle = styled.span`
   font-weight: lighter;
+
+  @media screen and (max-width: 411px) {
+    font-size: 1.2rem;
+  }
 `;

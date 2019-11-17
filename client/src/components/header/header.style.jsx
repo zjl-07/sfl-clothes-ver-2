@@ -30,6 +30,10 @@ export const OptionLink = styled(Link)`
   font-size: ${defaultFontSize};
   padding: 0 2rem;
   cursor: pointer;
+
+  @media screen and (max-width: 411px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const ImageContainer = styled.img`
