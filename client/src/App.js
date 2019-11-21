@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "redux/user/user.selector";
 import { checkUserAuthentication } from "redux/user/user.action";
-import HomePage from "pages/homepage/homepage";
-import ShopPage from "pages/shop/shop";
-import Login from "pages/login-register/login";
-import Register from "pages/login-register/register";
-import Checkout from "pages/checkout/checkout";
-import ContactUs from "pages/contact-us/contact-us";
 import Header from "components/header/header";
+import Spinner from "components/spinner/spinner";
 import "./App.css";
 //import { GlobalStyle } from "global.styles";
+
+const HomePage = lazy(() => import("pages/homepage/homepage"));
+const ShopPage = lazy(() => import("pages/shop/shop"));
+const Login = lazy(() => import("pages/login-register/login"));
+const Register = lazy(() => import("pages/login-register/register"));
+const Checkout = lazy(() => import("pages/checkout/checkout"));
+const ContactUs = lazy(() => import("pages/contact-us/contact-us"));
 
 const App = ({ checkUserAuthentication, currentUser }) => {
   useEffect(() => {
@@ -23,24 +25,26 @@ const App = ({ checkUserAuthentication, currentUser }) => {
     <div>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route path="/contact-us" component={ContactUs} />
-        <Route
-          exact
-          path="/checkout"
-          render={() => (currentUser ? <Checkout /> : <Login />)}
-        />
-        <Route
-          exact
-          path="/login"
-          render={() => (currentUser ? <Redirect to="/" /> : <Login />)}
-        />
-        <Route
-          exact
-          path="/register"
-          render={() => (currentUser ? <Redirect to="/" /> : <Register />)}
-        />
+        <Suspense fallback={<Spinner />}>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/contact-us" component={ContactUs} />
+          <Route
+            exact
+            path="/checkout"
+            render={() => (currentUser ? <Checkout /> : <Login />)}
+          />
+          <Route
+            exact
+            path="/login"
+            render={() => (currentUser ? <Redirect to="/" /> : <Login />)}
+          />
+          <Route
+            exact
+            path="/register"
+            render={() => (currentUser ? <Redirect to="/" /> : <Register />)}
+          />
+        </Suspense>
       </Switch>
     </div>
   );
