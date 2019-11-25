@@ -6,6 +6,7 @@ import { selectCurrentUser } from "redux/user/user.selector";
 import { checkUserAuthentication } from "redux/user/user.action";
 import Header from "components/header/header";
 import Spinner from "components/spinner/spinner";
+import ErrorBoundary from "components/error-boundary/error-boundary";
 import "./App.css";
 //import { GlobalStyle } from "global.styles";
 
@@ -25,26 +26,28 @@ const App = ({ checkUserAuthentication, currentUser }) => {
     <div>
       <Header />
       <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/contact-us" component={ContactUs} />
-          <Route
-            exact
-            path="/checkout"
-            render={() => (currentUser ? <Checkout /> : <Login />)}
-          />
-          <Route
-            exact
-            path="/login"
-            render={() => (currentUser ? <Redirect to="/" /> : <Login />)}
-          />
-          <Route
-            exact
-            path="/register"
-            render={() => (currentUser ? <Redirect to="/" /> : <Register />)}
-          />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route path="/contact-us" component={ContactUs} />
+            <Route
+              exact
+              path="/checkout"
+              render={() => (currentUser ? <Checkout /> : <Login />)}
+            />
+            <Route
+              exact
+              path="/login"
+              render={() => (currentUser ? <Redirect to="/" /> : <Login />)}
+            />
+            <Route
+              exact
+              path="/register"
+              render={() => (currentUser ? <Redirect to="/" /> : <Register />)}
+            />
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );
