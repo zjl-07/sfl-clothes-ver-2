@@ -10,7 +10,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = process.env.PORT || 5000;
 
-var whitelist = ["http://localhost:3000", "http://localhost:5000"];
+var whitelist = ["http://localhost:3002", "http://localhost:5000"];
 var corsOptions = {
   origin: function(origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
