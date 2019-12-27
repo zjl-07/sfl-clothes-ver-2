@@ -24,7 +24,7 @@ var corsOptions = {
   }
 };
 
-app.use(compression());
+app.use(compression);
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
