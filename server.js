@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const compression = require("compression");
+const enforce = require("express-sslify");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
@@ -12,6 +13,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 var whitelist = ["http://localhost:3002", "http://localhost:5000"];
+
 var corsOptions = {
   origin: function(origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -29,6 +31,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV === "production") {
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", function(req, res) {
@@ -39,6 +42,10 @@ if (process.env.NODE_ENV === "production") {
 app.listen(port, error => {
   if (error) throw error;
   console.log("Server running on port " + port);
+});
+
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "...", "build", "service-worker.js"));
 });
 
 app.post("/payment", (req, res) => {
