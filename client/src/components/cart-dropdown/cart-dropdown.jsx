@@ -13,7 +13,6 @@ import {
 } from "./cart-dropdown.style";
 
 const CartDropdown = ({ cartItems, history, dispatch }) => {
-  console.log("cart", cartItems);
   return (
     <CartDropdownContainer>
       <CartItemsContainer>

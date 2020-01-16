@@ -7,11 +7,7 @@ import { CartIconContainer, CountIconContainer } from "./cart-icon.style";
 
 const CartIcon = ({ dispatch, itemCount }) => {
   return (
-    <CartIconContainer
-      onClick={() => {
-        dispatch(toggleCartHidden());
-      }}
-    >
+    <CartIconContainer onClick={() => dispatch(toggleCartHidden())}>
       <i className="fa fa-shopping-cart" aria-hidden="true"></i>
       <CountIconContainer>{itemCount}</CountIconContainer>
     </CartIconContainer>
